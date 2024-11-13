@@ -1,0 +1,235 @@
+:root {
+    --background-color: #121212;
+    --primary-color: #1e88e5;
+    --text-color: #e0e0e0;
+    --secondary-text-color: #b0bec5;
+    --button-color: #1e88e5;
+    --button-hover-color: #1565c0;
+    --input-background-color: #333333;
+    --border-radius: 8px;
+    --chat-bubble-color: #1e88e5;
+    --user-bubble-color: #424242;
+    --scrollbar-bg: #333333; /* Background of the scrollbar */
+    --scrollbar-thumb: #555555; /* Thumb color of the scrollbar */
+    --scrollbar-thumb-hover: #777777; /* Thumb color when hovered */
+}
+
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Dark mode scrollbar styling */
+::-webkit-scrollbar {
+    width: 12px; /* Adjust width of the scrollbar */
+    height: 12px; /* Adjust height for horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-bg); /* Background of the scrollbar track */
+    border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb); /* Thumb color */
+    border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover); /* Thumb color on hover */
+}
+
+::-webkit-scrollbar-corner {
+    background-color: var(--scrollbar-bg); /* Color of the corner when both vertical and horizontal scrollbars are visible */
+}
+
+/* Body and container styles */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    background-color: #181818;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Back button styling (positioned at top-right) */
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
+/* Title */
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Home page - Choose feature text */
+.choose-feature-text {
+    color: var(--text-color);
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Home page button container */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Button styling */
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 10px 0;
+    color: #fff;
+    background-color: var(--button-color);
+    border: none;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    width: 70%;
+}
+
+.button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Finny Chatbot page styling */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.chat-bubble {
+    padding: 10px;
+    border-radius: var(--border-radius);
+    line-height: 1.4;
+    max-width: 75%;
+    margin-bottom: 10px;
+}
+
+.chat-bubble.user {
+    align-self: flex-end;
+    background-color: var(--user-bubble-color);
+    color: var(--text-color);
+}
+
+.chat-bubble.assistant {
+    align-self: flex-start;
+    background-color: var(--chat-bubble-color);
+    color: #fff;
+}
+
+/* Chat form (input and button alignment) */
+.chat-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.chat-form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--input-background-color);
+    color: var(--text-color);
+}
+
+.chat-form button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--button-color);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.chat-form button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Sentiment Analysis & Summarization Styling */
+.result {
+    margin-top: 20px;
+}
+
+h2.article-title {
+    font-size: 24px;
+    color: #333;
+}
+
+h3.sentiment-title,
+h3.summary-title {
+    font-size: 20px;
+    color: #444;
+    margin-top: 20px;
+}
+
+/* Sentiment styling */
+.sentiment {
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.sentiment.positive {
+    background-color: #28a745;
+    color: white;
+}
+
+.sentiment.negative {
+    background-color: #dc3545;
+    color: white;
+}
+
+.sentiment.neutral {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* Summary styling */
+.summary {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+    margin-top: 10px;
+}

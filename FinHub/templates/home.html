@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>FinHub</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to FinHub</h1>
+    
+    <!-- Text to describe feature options -->
+    <p class="choose-feature-text">Choose a feature to explore:</p>
+
+    <!-- Feature buttons stacked one below the other -->
+    <div class="button-container">
+        <a href="{% url 'finny_pete:chat_view' %}" class="button">FinnyPete - Chatbot</a>
+        <a href="{% url 'fintiment:sentiment_view' %}" class="button">FinTiment - Sentiment Analysis</a>
+    </div>
+</div>
+</body>
+</html>

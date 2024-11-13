@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>FinTiment - Sentiment Analysis</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        /* Input field for URL */
+        form input[type="url"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: var(--input-background-color);
+            color: var(--text-color);
+            border: 2px solid #333;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+
+        form input[type="url"]:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        /* Analyze button styling */
+        form button {
+            padding: 12px 24px;
+            color: #fff;
+            background-color: var(--button-color);
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        /* Title, sentiment, and summary text color */
+        h1, h2.article-title, h3.sentiment-title, h3.summary-title, .sentiment, .summary {
+            color: #fff;
+        }
+
+        /* Sentiment styling */
+        .sentiment {
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .sentiment.positive {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .sentiment.negative {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .sentiment.neutral {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        /* Summary styling */
+        .summary {
+            font-size: 16px;
+            line-height: 1.5;
+            color: white; /* Ensure the summary text is white */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>FinTiment</h1>
+
+    <!-- Back button to go back to the main menu -->
+    <a href="{% url 'home' %}" class="back-button">Back to Menu</a>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="url" name="url" placeholder="Enter a Mint article URL" required>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if title %}
+        <div class="result">
+            <h2 class="article-title">{{ title }}</h2>
+            
+            <h3 class="sentiment-title">Sentiment:</h3>
+            <p class="sentiment {{ sentiment|lower }}">{{ sentiment }} (Score: {{ score }})</p>
+            
+            <h3 class="summary-title">Summary:</h3>
+            <p class="summary">{{ summary }}</p>
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>
