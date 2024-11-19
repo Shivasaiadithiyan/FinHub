@@ -1,19 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static %}
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinHub</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        /* Global Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #1e1e2f, #2c3e50);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container Styling */
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Title Styling */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+
+        /* Subtitle Text */
+        .choose-feature-text {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        /* Button Container Styling */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Button Styling */
+        .button {
+            text-decoration: none;
+            display: block;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            background-color: #4a90e2;
+            color: #ffffff;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            background-color: #357abd;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:active {
+            transform: translateY(2px);
+            box-shadow: none;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
     <h1>Welcome to FinHub</h1>
-    
-    <!-- Text to describe feature options -->
     <p class="choose-feature-text">Choose a feature to explore:</p>
-
-    <!-- Feature buttons stacked one below the other -->
     <div class="button-container">
         <a href="{% url 'finny_pete:chat_view' %}" class="button">FinnyPete - Chatbot</a>
         <a href="{% url 'fintiment:sentiment_view' %}" class="button">FinTiment - Sentiment Analysis</a>

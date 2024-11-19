@@ -1,146 +1,109 @@
 :root {
     --background-color: #121212;
     --primary-color: #1e88e5;
+    --secondary-color: #1565c0;
     --text-color: #e0e0e0;
-    --secondary-text-color: #b0bec5;
+    --user-bubble-color: #424242;
+    --assistant-bubble-color: #1e88e5;
+    --input-background-color: #1c1c1c;
     --button-color: #1e88e5;
     --button-hover-color: #1565c0;
-    --input-background-color: #333333;
-    --border-radius: 8px;
-    --chat-bubble-color: #1e88e5;
-    --user-bubble-color: #424242;
-    --scrollbar-bg: #333333; /* Background of the scrollbar */
-    --scrollbar-thumb: #555555; /* Thumb color of the scrollbar */
-    --scrollbar-thumb-hover: #777777; /* Thumb color when hovered */
+    --border-radius: 10px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Global styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-/* Dark mode scrollbar styling */
-::-webkit-scrollbar {
-    width: 12px; /* Adjust width of the scrollbar */
-    height: 12px; /* Adjust height for horizontal scrollbar */
-}
-
-::-webkit-scrollbar-track {
-    background-color: var(--scrollbar-bg); /* Background of the scrollbar track */
-    border-radius: var(--border-radius);
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb); /* Thumb color */
-    border-radius: var(--border-radius);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: var(--scrollbar-thumb-hover); /* Thumb color on hover */
-}
-
-::-webkit-scrollbar-corner {
-    background-color: var(--scrollbar-bg); /* Color of the corner when both vertical and horizontal scrollbars are visible */
-}
-
-/* Body and container styles */
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
 .container {
     max-width: 800px;
-    width: 100%;
+    margin: auto;
     padding: 20px;
     background-color: #181818;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    position: relative;
+    box-shadow: var(--box-shadow);
+    margin-top: 50px;
 }
 
-/* Back button styling (positioned at top-right) */
-.back-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.back-button:hover {
-    background-color: #555;
-}
-
-/* Title */
-h1 {
+h1, h2, h3 {
     color: var(--primary-color);
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* Home page - Choose feature text */
-.choose-feature-text {
+p {
+    margin: 10px 0;
     color: var(--text-color);
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 20px;
 }
 
-/* Home page button container */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+.back-button {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.back-button:hover {
+    color: var(--secondary-color);
+}
+
 .button-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items: center;
+    margin-top: 20px;
 }
 
-/* Button styling */
 .button {
-    display: inline-block;
-    padding: 12px 24px;
-    margin: 10px 0;
-    color: #fff;
-    background-color: var(--button-color);
-    border: none;
-    border-radius: var(--border-radius);
     text-align: center;
-    font-weight: bold;
+    padding: 15px;
+    font-size: 18px;
+    color: white;
+    background-color: var(--button-color);
+    border-radius: var(--border-radius);
     text-decoration: none;
-    width: 70%;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 .button:hover {
     background-color: var(--button-hover-color);
 }
 
-/* Finny Chatbot page styling */
+/* Chatbot Specific Styling */
 .chat-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
     max-height: 400px;
     overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: var(--border-radius);
+    background-color: var(--input-background-color);
+    margin-bottom: 20px;
 }
 
 .chat-bubble {
     padding: 10px;
+    margin: 10px 0;
     border-radius: var(--border-radius);
-    line-height: 1.4;
     max-width: 75%;
-    margin-bottom: 10px;
 }
 
 .chat-bubble.user {
@@ -151,58 +114,80 @@ h1 {
 
 .chat-bubble.assistant {
     align-self: flex-start;
-    background-color: var(--chat-bubble-color);
-    color: #fff;
+    background-color: var(--assistant-bubble-color);
+    color: white;
 }
 
-/* Chat form (input and button alignment) */
 .chat-form {
     display: flex;
     gap: 10px;
-    margin-top: 20px;
 }
 
-.chat-form input[type="text"] {
+.chat-form input {
     flex: 1;
     padding: 10px;
-    border-radius: 10px;
-    border: none;
+    border: 1px solid #333;
+    border-radius: var(--border-radius);
     background-color: var(--input-background-color);
     color: var(--text-color);
+    font-size: 16px;
+}
+
+.chat-form input:focus {
+    border-color: var(--primary-color);
+    outline: none;
 }
 
 .chat-form button {
     padding: 10px 20px;
-    border-radius: 10px;
-    border: none;
     background-color: var(--button-color);
-    color: #fff;
-    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .chat-form button:hover {
     background-color: var(--button-hover-color);
 }
 
-/* Sentiment Analysis & Summarization Styling */
-.result {
-    margin-top: 20px;
+/* Sentiment Analysis Specific Styling */
+form input[type="url"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background-color: var(--input-background-color);
+    color: var(--text-color);
+    border: 1px solid #333;
+    border-radius: var(--border-radius);
+    font-size: 16px;
 }
 
-h2.article-title {
-    font-size: 24px;
-    color: #333;
+form input[type="url"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
 }
 
-h3.sentiment-title,
-h3.summary-title {
-    font-size: 20px;
-    color: #444;
-    margin-top: 20px;
+form button {
+    padding: 12px 24px;
+    color: #fff;
+    background-color: var(--button-color);
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-/* Sentiment styling */
+form button:hover {
+    background-color: var(--button-hover-color);
+}
+
 .sentiment {
     font-size: 18px;
     padding: 10px;
@@ -226,10 +211,32 @@ h3.summary-title {
     color: white;
 }
 
-/* Summary styling */
 .summary {
     font-size: 16px;
     line-height: 1.5;
-    color: #555;
+    color: var(--text-color);
     margin-top: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1, h2, h3 {
+        font-size: 24px;
+    }
+
+    .button {
+        font-size: 16px;
+    }
+
+    .chat-form input, form input[type="url"] {
+        font-size: 14px;
+    }
+
+    .chat-form button, form button {
+        font-size: 14px;
+    }
 }
